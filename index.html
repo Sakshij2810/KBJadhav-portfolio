@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Shri Kalyan B. Jadhav – Civil Engineer, Bridge Expert since 1992. 30+ years of bridge execution experience across Maharashtra. Now offering expert consultancy."
+    />
+    <title>Shri Kalyan B. Jadhav | Bridge Expert & Civil Consultant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --navy: #0d1f3c;
+        --navy-mid: #1a3360;
+        --steel: #2e5197;
+        --gold: #c9a84c;
+        --gold-light: #e8c97a;
+        --cream: #f8f6f1;
+        --white: #ffffff;
+        --grey-light: #f2f2f2;
+        --grey-mid: #9aacbf;
+        --text-dark: #1a1a2e;
+        --text-body: #3d4a5c;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        color: var(--text-body);
+        background: var(--white);
+        overflow-x: hidden;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.2rem 5vw;
+        background: rgba(13, 31, 60, 0.96);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+      }
+      .nav-logo {
+        font-family: "Playfair Display", serif;
+        color: var(--gold);
+        font-size: 1.25rem;
+        letter-spacing: 0.05em;
+        text-decoration: none;
+      }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        color: var(--grey-mid);
+        text-decoration: none;
+        font-size: 0.85rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        transition: color 0.3s;
+      }
+      .nav-links a:hover {
+        color: var(--gold);
+      }
+
+      /* ── HERO ── */
+      #hero {
+        min-height: 100vh;
+        background: var(--navy);
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        padding: 6rem 5vw 4rem;
+      }
+      .hero-bg-lines {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          repeating-linear-gradient(
+            90deg,
+            rgba(46, 81, 151, 0.12) 0,
+            rgba(46, 81, 151, 0.12) 1px,
+            transparent 0,
+            transparent 80px
+          ),
+          repeating-linear-gradient(
+            180deg,
+            rgba(46, 81, 151, 0.08) 0,
+            rgba(46, 81, 151, 0.08) 1px,
+            transparent 0,
+            transparent 80px
+          );
+      }
+      .hero-accent {
+        position: absolute;
+        right: -80px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 600px;
+        height: 600px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(46, 81, 151, 0.25) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .hero-content {
+        position: relative;
+        max-width: 760px;
+      }
+      .hero-badge {
+        display: inline-block;
+        background: rgba(201, 168, 76, 0.15);
+        border: 1px solid rgba(201, 168, 76, 0.4);
+        color: var(--gold);
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 0.4rem 1rem;
+        border-radius: 2px;
+        margin-bottom: 1.5rem;
+        animation: fadeUp 0.6s ease both;
+      }
+      .hero-name {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        color: var(--white);
+        line-height: 1.1;
+        margin-bottom: 0.5rem;
+        animation: fadeUp 0.6s 0.1s ease both;
+      }
+      .hero-name span {
+        color: var(--gold);
+      }
+      .hero-title {
+        font-size: clamp(0.9rem, 2vw, 1.1rem);
+        color: var(--grey-mid);
+        font-weight: 300;
+        letter-spacing: 0.05em;
+        margin-bottom: 2rem;
+        animation: fadeUp 0.6s 0.2s ease both;
+      }
+      .hero-divider {
+        width: 60px;
+        height: 2px;
+        background: linear-gradient(90deg, var(--gold), transparent);
+        margin-bottom: 2rem;
+        animation: fadeUp 0.6s 0.3s ease both;
+      }
+      .hero-desc {
+        color: #8fa3bc;
+        font-size: 1rem;
+        line-height: 1.8;
+        max-width: 540px;
+        margin-bottom: 2.5rem;
+        animation: fadeUp 0.6s 0.4s ease both;
+      }
+      .hero-stats {
+        display: flex;
+        gap: 2.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 3rem;
+        animation: fadeUp 0.6s 0.5s ease both;
+      }
+      .stat-item {
+        text-align: left;
+      }
+      .stat-num {
+        font-family: "Playfair Display", serif;
+        font-size: 2.2rem;
+        color: var(--gold);
+        line-height: 1;
+      }
+      .stat-label {
+        font-size: 0.78rem;
+        color: var(--grey-mid);
+        letter-spacing: 0.05em;
+        margin-top: 0.2rem;
+      }
+      .hero-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        background: var(--gold);
+        color: var(--navy);
+        padding: 0.85rem 2rem;
+        font-size: 0.85rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 2px;
+        transition:
+          background 0.3s,
+          transform 0.2s;
+        animation: fadeUp 0.6s 0.6s ease both;
+      }
+      .hero-cta:hover {
+        background: var(--gold-light);
+        transform: translateY(-2px);
+      }
+
+      /* ── SECTION COMMON ── */
+      section {
+        padding: 6rem 5vw;
+      }
+      .section-label {
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.75rem;
+      }
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(1.8rem, 4vw, 2.8rem);
+        color: var(--navy);
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+      .section-subtitle {
+        color: var(--text-body);
+        font-size: 1rem;
+        line-height: 1.7;
+        max-width: 540px;
+        margin-bottom: 3rem;
+      }
+      .divider-line {
+        width: 50px;
+        height: 2px;
+        background: var(--gold);
+        margin: 1rem 0 2.5rem;
+      }
+
+      /* ── ABOUT ── */
+      #about {
+        background: var(--cream);
+      }
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: start;
+      }
+      .about-text p {
+        color: var(--text-body);
+        line-height: 1.85;
+        margin-bottom: 1.2rem;
+        font-size: 0.97rem;
+      }
+      .contact-card {
+        background: var(--white);
+        border: 1px solid #e4e0d8;
+        border-top: 3px solid var(--gold);
+        padding: 2rem;
+        border-radius: 4px;
+      }
+      .contact-card h3 {
+        font-family: "Playfair Display", serif;
+        color: var(--navy);
+        margin-bottom: 1.5rem;
+        font-size: 1.2rem;
+      }
+      .contact-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 1.2rem;
+        font-size: 0.9rem;
+      }
+      .contact-icon {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        background: rgba(13, 31, 60, 0.06);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+      }
+      .contact-info strong {
+        display: block;
+        color: var(--navy);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.2rem;
+      }
+      .contact-info a {
+        color: var(--text-body);
+        text-decoration: none;
+      }
+      .contact-info a:hover {
+        color: var(--steel);
+      }
+
+      /* ── SERVICES ── */
+      #services {
+        background: var(--white);
+      }
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+      .service-card {
+        border: 1px solid #e6e6e6;
+        border-radius: 4px;
+        padding: 2rem;
+        transition:
+          border-color 0.3s,
+          box-shadow 0.3s,
+          transform 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 0;
+        background: var(--gold);
+        transition: height 0.4s ease;
+      }
+      .service-card:hover::before {
+        height: 100%;
+      }
+      .service-card:hover {
+        border-color: transparent;
+        box-shadow: 0 8px 40px rgba(13, 31, 60, 0.1);
+        transform: translateY(-4px);
+      }
+      .service-num {
+        font-family: "Playfair Display", serif;
+        font-size: 2.5rem;
+        color: rgba(13, 31, 60, 0.07);
+        line-height: 1;
+        margin-bottom: 1rem;
+        font-weight: 700;
+      }
+      .service-card h3 {
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--navy);
+        margin-bottom: 0.75rem;
+        letter-spacing: 0.02em;
+      }
+      .service-card ul {
+        list-style: none;
+      }
+      .service-card ul li {
+        font-size: 0.87rem;
+        color: var(--text-body);
+        padding: 0.3rem 0;
+        padding-left: 1rem;
+        position: relative;
+        line-height: 1.5;
+      }
+      .service-card ul li::before {
+        content: "—";
+        position: absolute;
+        left: 0;
+        color: var(--gold);
+        font-size: 0.7rem;
+      }
+
+      /* ── PROJECTS ── */
+      #projects {
+        background: var(--navy);
+      }
+      #projects .section-title {
+        color: var(--white);
+      }
+      #projects .section-subtitle {
+        color: var(--grey-mid);
+      }
+      .landmark-strip {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 4rem;
+      }
+      .landmark-card {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(201, 168, 76, 0.25);
+        border-radius: 4px;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+        transition: background 0.3s;
+      }
+      .landmark-card:hover {
+        background: rgba(255, 255, 255, 0.07);
+      }
+      .landmark-tag {
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.75rem;
+      }
+      .landmark-card h3 {
+        font-family: "Playfair Display", serif;
+        color: var(--white);
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.3;
+      }
+      .landmark-card p {
+        color: var(--grey-mid);
+        font-size: 0.87rem;
+        line-height: 1.6;
+      }
+      .projects-table-wrap {
+        overflow-x: auto;
+        border-radius: 4px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      thead tr {
+        background: rgba(201, 168, 76, 0.1);
+      }
+      thead th {
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gold);
+        padding: 1rem 1.2rem;
+        text-align: left;
+        font-weight: 500;
+      }
+      tbody tr {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        transition: background 0.2s;
+      }
+      tbody tr:hover {
+        background: rgba(255, 255, 255, 0.04);
+      }
+      tbody td {
+        padding: 0.9rem 1.2rem;
+        font-size: 0.87rem;
+        color: #c0cede;
+        line-height: 1.4;
+      }
+      tbody td:first-child {
+        color: var(--gold);
+        font-weight: 500;
+        font-size: 0.85rem;
+      }
+      tbody td:nth-child(2) {
+        color: var(--white);
+        font-weight: 400;
+      }
+      .client-badge {
+        display: inline-block;
+        background: rgba(46, 81, 151, 0.4);
+        color: #a0b8d4;
+        font-size: 0.73rem;
+        padding: 0.15rem 0.6rem;
+        border-radius: 2px;
+        letter-spacing: 0.04em;
+      }
+      .in-progress {
+        display: inline-block;
+        background: rgba(201, 168, 76, 0.15);
+        color: var(--gold);
+        font-size: 0.73rem;
+        padding: 0.15rem 0.6rem;
+        border-radius: 2px;
+      }
+
+      /* ── ENGAGEMENT ── */
+      #engagement {
+        background: var(--cream);
+      }
+      .engagement-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: start;
+      }
+      .engagement-note {
+        background: var(--white);
+        border-left: 3px solid var(--gold);
+        padding: 1.5rem 2rem;
+        border-radius: 0 4px 4px 0;
+        font-size: 0.93rem;
+        color: var(--text-body);
+        line-height: 1.7;
+        margin-top: 2rem;
+      }
+      .engagement-note strong {
+        color: var(--navy);
+      }
+      .addl-services h3 {
+        font-family: "Playfair Display", serif;
+        color: var(--navy);
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+      }
+      .addl-services p {
+        color: var(--text-body);
+        font-size: 0.93rem;
+        line-height: 1.75;
+        margin-bottom: 1rem;
+      }
+
+      /* ── CTA ── */
+      #contact {
+        background: var(--navy-mid);
+        text-align: center;
+        padding: 5rem 5vw;
+      }
+      #contact .section-title {
+        color: var(--white);
+        margin: 0 auto 1rem;
+      }
+      #contact .section-subtitle {
+        color: var(--grey-mid);
+        margin: 0 auto 2.5rem;
+      }
+      .cta-row {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--gold);
+        color: var(--navy);
+        padding: 0.9rem 2.2rem;
+        font-size: 0.85rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 2px;
+        transition:
+          background 0.3s,
+          transform 0.2s;
+      }
+      .btn-primary:hover {
+        background: var(--gold-light);
+        transform: translateY(-2px);
+      }
+      .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        border: 1px solid rgba(201, 168, 76, 0.5);
+        color: var(--gold);
+        padding: 0.9rem 2.2rem;
+        font-size: 0.85rem;
+        font-weight: 400;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 2px;
+        transition:
+          background 0.3s,
+          border-color 0.3s;
+      }
+      .btn-outline:hover {
+        background: rgba(201, 168, 76, 0.1);
+        border-color: var(--gold);
+      }
+      blockquote {
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.45);
+        font-size: 0.95rem;
+        margin-top: 3.5rem;
+        line-height: 1.6;
+      }
+      blockquote cite {
+        display: block;
+        font-style: normal;
+        font-size: 0.78rem;
+        color: var(--gold);
+        margin-top: 0.5rem;
+        letter-spacing: 0.06em;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: var(--navy);
+        padding: 1.5rem 5vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      footer p {
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.3);
+      }
+      footer .footer-logo {
+        font-family: "Playfair Display", serif;
+        color: var(--gold);
+        font-size: 1rem;
+        opacity: 0.8;
+      }
+
+      /* ── ANIMATIONS ── */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(32px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 900px) {
+        .about-grid,
+        .engagement-grid {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+        .landmark-strip {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 640px) {
+        nav {
+          padding: 1rem 4vw;
+        }
+        .nav-links {
+          display: none;
+        }
+        .hero-stats {
+          gap: 1.5rem;
+        }
+        section {
+          padding: 4rem 4vw;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <a href="#hero" class="nav-logo">KBJ</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-bg-lines"></div>
+      <div class="hero-accent"></div>
+      <div class="hero-content">
+        <span class="hero-badge"
+          >Bridge Expert Since 1992 &nbsp;·&nbsp; Consultancy Est. 2025</span
+        >
+        <h1 class="hero-name">Shri Kalyan B.<br /><span>Jadhav</span></h1>
+        <p class="hero-title">
+          Civil Engineer &nbsp;|&nbsp; Civil Consultant &nbsp;|&nbsp; Bridge
+          Expert
+        </p>
+        <div class="hero-divider"></div>
+        <p class="hero-desc">
+          Three decades of hands-on bridge execution across Maharashtra — from
+          river crossings to landmark expressway structures. Now offering expert
+          consultancy to contractors and government agencies.
+        </p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-num">30+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">28+</div>
+            <div class="stat-label">Bridges Completed</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">2025</div>
+            <div class="stat-label">Consultancy Est.</div>
+          </div>
+        </div>
+        <a href="#contact" class="hero-cta">Get in Touch &rarr;</a>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="reveal">
+        <p class="section-label">About Us</p>
+        <h2 class="section-title">
+          Theory-Based Practical<br />Experience in Bridge Execution
+        </h2>
+        <div class="divider-line"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            With over 30 years of hands-on experience in bridge execution since
+            1992, Shri Kalyan B. Jadhav has established an independent
+            consultancy practice in 2025. Services are provided purely on the
+            foundation of theory-based practical experience — bridging classroom
+            knowledge with real-world execution challenges.
+          </p>
+          <p>
+            Having successfully delivered more than 28 bridge projects across
+            Maharashtra for clients including PWD, MSRDC, PMC, PCMC, MMRDC, and
+            DMIC, we offer unparalleled guidance in foundation works,
+            superstructure execution, PSC components, and project consultancy.
+          </p>
+          <p>
+            Our work spans landmark national projects — from the Mumbai Coastal
+            Road (Package IV, Hajiali Darga) to the Samruddhi Expressway bridge
+            — reflecting the trust placed in us by Maharashtra's leading
+            infrastructure bodies.
+          </p>
+        </div>
+        <div class="contact-card reveal">
+          <h3>Contact Information</h3>
+          <div class="contact-row">
+            <div class="contact-icon">📞</div>
+            <div class="contact-info">
+              <strong>Phone</strong>
+              <a href="tel:9420031135">9420031135</a> /
+              <a href="tel:9371491135">9371491135</a>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">✉️</div>
+            <div class="contact-info">
+              <strong>Email</strong>
+              <a href="mailto:KalyanM.Jadhav@gmail.com"
+                >KalyanM.Jadhav@gmail.com</a
+              >
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">📍</div>
+            <div class="contact-info">
+              <strong>Address</strong>
+              Swarajyanagar (Sant Tukaram Colony),<br />Beed, Maharashtra, India
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="reveal">
+        <p class="section-label">Our Services</p>
+        <h2 class="section-title">
+          Expert Guidance Across<br />All Bridge Components
+        </h2>
+        <div class="divider-line"></div>
+        <p class="section-subtitle">
+          We provide specialist consultancy and on-site guidance across every
+          critical phase of bridge construction.
+        </p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-num">01</div>
+          <h3>Foundation Works</h3>
+          <ul>
+            <li>Raft Foundation</li>
+            <li>Open Footing — Spread, Square, Isolated</li>
+            <li>Pile Foundation — 6mm Liner Plate, Sheet Piles</li>
+            <li>Well Foundation — D or Double D</li>
+          </ul>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-num">02</div>
+          <h3>I Girder / Box Girder</h3>
+          <ul>
+            <li>Especially for PSC Components</li>
+            <li>Stressing & Grouting — Complete</li>
+          </ul>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-num">03</div>
+          <h3>Expansion Joints</h3>
+          <ul>
+            <li>Strip Seal Type</li>
+          </ul>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-num">04</div>
+          <h3>Mastic Asphalt</h3>
+          <ul>
+            <li>25mm Thick Application</li>
+          </ul>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-num">05</div>
+          <h3>Bituminous Concrete</h3>
+          <ul>
+            <li>40mm Thick Application</li>
+          </ul>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-num">06</div>
+          <h3>Substructure Works</h3>
+          <ul>
+            <li>Counterfort Abutment</li>
+            <li>Box Return, Fly Back Return</li>
+            <li>Return Wall — Complete</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="reveal">
+        <p class="section-label" style="color: var(--gold-light)">
+          Project Portfolio
+        </p>
+        <h2 class="section-title">30+ Bridges Across Maharashtra</h2>
+        <div class="divider-line"></div>
+        <p class="section-subtitle">
+          A legacy built over three decades — from district roads to national
+          expressways.
+        </p>
+      </div>
+
+      <!-- Landmark Projects -->
+      <div class="landmark-strip reveal">
+        <div class="landmark-card">
+          <div class="landmark-tag">⭐ Landmark — MMRDC</div>
+          <h3>Mumbai Coastal Road — Package IV</h3>
+          <p>
+            Hajiali Darga section. One of India's most prestigious urban coastal
+            infrastructure projects. 2023–2024.
+          </p>
+        </div>
+        <div class="landmark-card">
+          <div class="landmark-tag">⭐ Landmark — MSRDC</div>
+          <h3>Samruddhi Expressway Bridge</h3>
+          <p>
+            Khadakpurna River Bridge at Dusarbid. Part of Maharashtra's flagship
+            highway. 2022.
+          </p>
+        </div>
+        <div class="landmark-card">
+          <div class="landmark-tag">⭐ Landmark — PMC Pune</div>
+          <h3>Mula-Mutha River Bridge</h3>
+          <p>
+            53.5m Open Spandrel Arch Span at Yerwada, Pune. Complex
+            architectural bridge. 2010.
+          </p>
+        </div>
+      </div>
+
+      <!-- Full Project Table -->
+      <div class="projects-table-wrap reveal">
+        <table>
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Project</th>
+              <th>Location / Details</th>
+              <th>Client</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1992</td>
+              <td>Godavari High Level Bridge</td>
+              <td>Sahasgad, Beed Ambad-Jalna Road</td>
+              <td><span class="client-badge">PWD Jalna</span></td>
+            </tr>
+            <tr>
+              <td>1995</td>
+              <td>Godavari Submersible HLB</td>
+              <td>Asati-Sawangi-Nathya-Sadola Road, Asti</td>
+              <td><span class="client-badge">PWD</span></td>
+            </tr>
+            <tr>
+              <td>2003</td>
+              <td>Godavari River Bridge</td>
+              <td>Tapovan, Nasik — Kumbh Mela occasion</td>
+              <td><span class="client-badge">NMC</span></td>
+            </tr>
+            <tr>
+              <td>2004</td>
+              <td>Khebwade Creek Bridge</td>
+              <td>Rathagiri-Are-ware-Sakhartav-Ganpati Pule</td>
+              <td><span class="client-badge">PWD Ratnagiri</span></td>
+            </tr>
+            <tr>
+              <td>2004</td>
+              <td>IRDP Package of 4 Bridges</td>
+              <td>Soramati City, Karha River</td>
+              <td><span class="client-badge">IRDP</span></td>
+            </tr>
+            <tr>
+              <td>2005</td>
+              <td>Sanvatsar River Bridge</td>
+              <td>On Godavari</td>
+              <td><span class="client-badge">MSRDC</span></td>
+            </tr>
+            <tr>
+              <td>2005</td>
+              <td>Dapodi Railway Station Bridge (ROB)</td>
+              <td>Kalewadi Location, CME End</td>
+              <td><span class="client-badge">PCMC</span></td>
+            </tr>
+            <tr>
+              <td>2006</td>
+              <td>Godavari River Bridge</td>
+              <td>Pensur (Loha-Vasmatri), Hingoli Div.</td>
+              <td><span class="client-badge">PWD</span></td>
+            </tr>
+            <tr>
+              <td>2007</td>
+              <td>Godavari Eastern By-Pass Bridge</td>
+              <td>Bonclar, Guru-ta-Gaddi Programme, Nanded</td>
+              <td><span class="client-badge">MSRDC</span></td>
+            </tr>
+            <tr>
+              <td>2008</td>
+              <td>Lendi River Bridge (HLB)</td>
+              <td>Deglur</td>
+              <td><span class="client-badge">PWD Nanded</span></td>
+            </tr>
+            <tr>
+              <td>2008</td>
+              <td>Manar River Bridge</td>
+              <td>Ozherga, Deghat-Narkha-Mandas Road</td>
+              <td><span class="client-badge">Nanded PWB</span></td>
+            </tr>
+            <tr>
+              <td>2009</td>
+              <td>Dudhganga River Bridge</td>
+              <td>Khebwade, Kolhapur Div.</td>
+              <td><span class="client-badge">PWD</span></td>
+            </tr>
+            <tr>
+              <td>2009</td>
+              <td>Dhebewadi Bridge</td>
+              <td>Karad Patan Road</td>
+              <td><span class="client-badge">PWD Karad</span></td>
+            </tr>
+            <tr>
+              <td>2010</td>
+              <td>Mula-Mutha River Bridge</td>
+              <td>Yerwada, Pune (53.5m Open Spandrel Arch)</td>
+              <td><span class="client-badge">PMC Pune</span></td>
+            </tr>
+            <tr>
+              <td>2011</td>
+              <td>Y Junction Bridge</td>
+              <td>Magarpatta – Nobel Hospital</td>
+              <td><span class="client-badge">PMC</span></td>
+            </tr>
+            <tr>
+              <td>2011</td>
+              <td>Bhima River Bridge</td>
+              <td>Ramfangaon Samdas, Sirur Dist., East Div. Pune</td>
+              <td><span class="client-badge">PWD</span></td>
+            </tr>
+            <tr>
+              <td>2012</td>
+              <td>Bandhara Cum Bridge</td>
+              <td>Dehane, Bhima River, Khed Sub Div.</td>
+              <td><span class="client-badge">PWD</span></td>
+            </tr>
+            <tr>
+              <td>2013</td>
+              <td>Vhel River Bridge</td>
+              <td>Pabal-Kendure MSR, Sirur Sub Div.</td>
+              <td><span class="client-badge">MSRDC</span></td>
+            </tr>
+            <tr>
+              <td>2014</td>
+              <td>Mahaveer Chowk Flyover</td>
+              <td>Aurangabad</td>
+              <td><span class="client-badge">MSRDC</span></td>
+            </tr>
+            <tr>
+              <td>2018</td>
+              <td>ROB at Khanote Rly Gate</td>
+              <td>Karjat-Bhigwan Road, Bhigwan Sub Div.</td>
+              <td><span class="client-badge">PWD</span></td>
+            </tr>
+            <tr>
+              <td>2019</td>
+              <td>Indrayani River Bridge</td>
+              <td>Sangurde (High Level + Submersible), Dehu</td>
+              <td><span class="client-badge">PWD</span></td>
+            </tr>
+            <tr>
+              <td>2019</td>
+              <td>Mula River Bridge</td>
+              <td>Rahuri, Mula Dam Tail End Backwater</td>
+              <td><span class="client-badge">PWD</span></td>
+            </tr>
+            <tr>
+              <td>2021</td>
+              <td>Katmaal ROB</td>
+              <td>DMIC Project, Auric City</td>
+              <td><span class="client-badge">DMIC</span></td>
+            </tr>
+            <tr>
+              <td>2021</td>
+              <td>Ladsar ROB</td>
+              <td>DMIC Project, Auric City</td>
+              <td><span class="client-badge">DMIC</span></td>
+            </tr>
+            <tr>
+              <td>2022</td>
+              <td>Khadakpurna River Bridge</td>
+              <td>Samruddhi Expressway, Dusarbid</td>
+              <td><span class="client-badge">MSRDC</span></td>
+            </tr>
+            <tr>
+              <td>2023–24</td>
+              <td>Mumbai Coastal Road — Pkg IV</td>
+              <td>Hajiali Darga</td>
+              <td><span class="client-badge">MMRDC</span></td>
+            </tr>
+            <tr>
+              <td>2024–25</td>
+              <td>Manjara River HLB</td>
+              <td>Melamb, Girok Sal, Nilanga</td>
+              <td><span class="client-badge">PWD</span></td>
+            </tr>
+            <tr>
+              <td>In Progress</td>
+              <td>Gangrakhel ROB</td>
+              <td>Parbhani</td>
+              <td>
+                <span class="in-progress">In Progress — PWD Parbhani</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ENGAGEMENT -->
+    <section id="engagement">
+      <div class="reveal">
+        <p class="section-label">Engagement Model</p>
+        <h2 class="section-title">How We Work With You</h2>
+        <div class="divider-line"></div>
+      </div>
+      <div class="engagement-grid">
+        <div class="reveal">
+          <p
+            style="
+              font-size: 0.97rem;
+              line-height: 1.85;
+              color: var(--text-body);
+              margin-bottom: 1.2rem;
+            "
+          >
+            Our service is offered on a
+            <strong style="color: var(--navy)">percentage basis</strong> of the
+            total project cost put by the tenderer. This ensures our interests
+            are fully aligned with yours — we succeed when your project
+            succeeds.
+          </p>
+          <p
+            style="
+              font-size: 0.97rem;
+              line-height: 1.85;
+              color: var(--text-body);
+            "
+          >
+            A detailed payment schedule break-up is provided after a written
+            contract is completed on bond paper, duly signed by both parties.
+          </p>
+          <div class="engagement-note">
+            <strong>Formal Agreement:</strong> All engagements are governed by a
+            written contract on bond paper, duly executed and signed by Party-1
+            &amp; Party-2 before any work commences.
+          </div>
+        </div>
+        <div class="addl-services reveal">
+          <h3>Additional Capabilities</h3>
+          <p>
+            We also provide services for
+            <strong style="color: var(--navy)">geological investigation</strong>
+            and structural design support.
+          </p>
+          <p>
+            Our network includes labour contractors and machinery contractors
+            who are always available in our contact list for day-to-day work at
+            responsible rates and timelines when required.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT CTA -->
+    <section id="contact">
+      <p class="section-label" style="color: var(--gold-light)">Get in Touch</p>
+      <h2 class="section-title" style="max-width: 560px; margin: 0 auto 1rem">
+        Ready to Discuss Your Bridge Project?
+      </h2>
+      <p class="section-subtitle" style="margin: 0 auto 2.5rem">
+        We welcome the opportunity to partner with contractors, government
+        agencies, and infrastructure companies across Maharashtra and beyond.
+      </p>
+      <div class="cta-row">
+        <a href="tel:9420031135" class="btn-primary">📞 Call 9420031135</a>
+        <a href="mailto:KalyanM.Jadhav@gmail.com" class="btn-outline"
+          >✉️ Send Email</a
+        >
+      </div>
+      <blockquote>
+        "Building bridges is not just about connecting two banks — it is about
+        connecting people, communities, and progress."
+        <cite>— KALYAN B. JADHAV</cite>
+      </blockquote>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <span class="footer-logo">KBJ Consultancy</span>
+      <p>
+        © 2025 Shri Kalyan B. Jadhav &nbsp;·&nbsp; All Rights Reserved
+        &nbsp;·&nbsp; Beed, Maharashtra, India
+      </p>
+    </footer>
+
+    <script>
+      // Scroll reveal
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              observer.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      reveals.forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
