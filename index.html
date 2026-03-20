@@ -93,9 +93,11 @@
         background: var(--navy);
         display: flex;
         align-items: center;
+        justify-content: center;
         position: relative;
         overflow: hidden;
         padding: 6rem 5vw 4rem;
+        text-align: center;
       }
       .hero-bg-lines {
         position: absolute;
@@ -119,15 +121,15 @@
       }
       .hero-accent {
         position: absolute;
-        right: -80px;
+        left: 50%;
         top: 50%;
-        transform: translateY(-50%);
-        width: 600px;
-        height: 600px;
+        transform: translate(-50%, -50%);
+        width: 700px;
+        height: 700px;
         border-radius: 50%;
         background: radial-gradient(
           circle,
-          rgba(46, 81, 151, 0.25) 0%,
+          rgba(46, 81, 151, 0.2) 0%,
           transparent 70%
         );
         pointer-events: none;
@@ -135,33 +137,44 @@
       .hero-content {
         position: relative;
         max-width: 760px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
       .hero-badge {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
         background: rgba(201, 168, 76, 0.15);
         border: 1px solid rgba(201, 168, 76, 0.4);
         color: var(--gold);
         font-size: 0.75rem;
         letter-spacing: 0.12em;
         text-transform: uppercase;
-        padding: 0.4rem 1rem;
-        border-radius: 2px;
-        margin-bottom: 1.5rem;
+        padding: 0.45rem 1.1rem;
+        border-radius: 999px;
+        margin-bottom: 1.8rem;
         animation: fadeUp 0.6s ease both;
+      }
+      .hero-badge::before {
+        content: "●";
+        font-size: 0.5rem;
+        color: var(--gold-light);
       }
       .hero-name {
         font-family: "Playfair Display", serif;
-        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-size: clamp(2.8rem, 7vw, 5.5rem);
         color: var(--white);
-        line-height: 1.1;
+        line-height: 1.05;
         margin-bottom: 0.5rem;
         animation: fadeUp 0.6s 0.1s ease both;
       }
       .hero-name span {
         color: var(--gold);
+        display: block;
       }
       .hero-title {
-        font-size: clamp(0.9rem, 2vw, 1.1rem);
+        font-size: clamp(1rem, 2vw, 1.2rem);
         color: var(--grey-mid);
         font-weight: 300;
         letter-spacing: 0.05em;
@@ -171,7 +184,12 @@
       .hero-divider {
         width: 60px;
         height: 2px;
-        background: linear-gradient(90deg, var(--gold), transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--gold),
+          transparent
+        );
         margin-bottom: 2rem;
         animation: fadeUp 0.6s 0.3s ease both;
       }
@@ -182,16 +200,18 @@
         max-width: 540px;
         margin-bottom: 2.5rem;
         animation: fadeUp 0.6s 0.4s ease both;
+        text-align: center;
       }
       .hero-stats {
         display: flex;
-        gap: 2.5rem;
+        gap: 3rem;
         flex-wrap: wrap;
         margin-bottom: 3rem;
+        justify-content: center;
         animation: fadeUp 0.6s 0.5s ease both;
       }
       .stat-item {
-        text-align: left;
+        text-align: center;
       }
       .stat-num {
         font-family: "Playfair Display", serif;
@@ -228,7 +248,62 @@
         transform: translateY(-2px);
       }
 
-      /* ── SECTION COMMON ── */
+      .hero-social {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 2rem;
+        animation: fadeUp 0.6s 0.7s ease both;
+      }
+      .hero-social-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        text-decoration: none;
+        transition:
+          background 0.3s,
+          border-color 0.3s;
+      }
+      .hero-social-btn:hover {
+        background: rgba(201, 168, 76, 0.15);
+        border-color: rgba(201, 168, 76, 0.4);
+      }
+      .hero-scroll {
+        position: absolute;
+        bottom: -3.5rem;
+        left: 45%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.4rem;
+        animation: fadeUp 0.6s 0.9s ease both;
+      }
+      .hero-scroll span {
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        color: rgba(255, 255, 255, 0.3);
+      }
+      .scroll-arrow {
+        color: rgba(255, 255, 255, 0.35);
+        font-size: 1rem;
+        animation: bounce 1.5s infinite;
+      }
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(6px);
+        }
+      }
       section {
         padding: 6rem 5vw;
       }
@@ -259,7 +334,6 @@
         background: var(--gold);
         margin: 1rem 0 2.5rem;
       }
-
       /* ── ABOUT ── */
       #about {
         background: var(--cream);
@@ -710,7 +784,7 @@
         <span class="hero-badge"
           >Bridge Expert Since 1992 &nbsp;·&nbsp; Consultancy Est. 2025</span
         >
-        <h1 class="hero-name">Shri Kalyan B.<br /><span>Jadhav</span></h1>
+        <h1 class="hero-name">Hi, I'm <span>Kalyan B. Jadhav</span></h1>
         <p class="hero-title">
           Civil Engineer &nbsp;|&nbsp; Civil Consultant &nbsp;|&nbsp; Bridge
           Expert
@@ -736,6 +810,11 @@
           </div>
         </div>
         <a href="#contact" class="hero-cta">Get in Touch &rarr;</a>
+
+        <!-- <div class="hero-scroll">
+          <span>SCROLL</span>
+          <div class="scroll-arrow">↓</div>
+        </div> -->
       </div>
     </section>
 
