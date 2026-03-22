@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -27,7 +27,6 @@
         --text-dark: #1a1a2e;
         --text-body: #3d4a5c;
       }
-
       *,
       *::before,
       *::after {
@@ -35,12 +34,10 @@
         margin: 0;
         padding: 0;
       }
-
       html {
         scroll-behavior: smooth;
         font-size: 16px;
       }
-
       body {
         font-family: "DM Sans", sans-serif;
         color: var(--text-body);
@@ -59,7 +56,7 @@
         justify-content: space-between;
         align-items: center;
         padding: 1.2rem 5vw;
-        background: rgba(13, 31, 60, 0.96);
+        background: rgba(13, 31, 60, 0);
         backdrop-filter: blur(8px);
         border-bottom: 1px solid rgba(201, 168, 76, 0.2);
       }
@@ -90,7 +87,12 @@
       /* ── HERO ── */
       #hero {
         min-height: 100vh;
-        background: var(--navy);
+        background-image: url("assets/mumbai-costal/1.jpg");
+
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        /* background: var(--navy); */
         display: flex;
         align-items: center;
         justify-content: center;
@@ -98,6 +100,30 @@
         overflow: hidden;
         padding: 6rem 5vw 4rem;
         text-align: center;
+      }
+
+      #hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 80% 90% at 50% 50%,
+          rgba(5, 12, 28, 0.72) 0%,
+          rgba(5, 12, 28, 0.45) 60%,
+          rgba(5, 12, 28, 0.15) 100%
+        );
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .hero-name {
+        text-shadow:
+          0 2px 24px rgba(0, 0, 0, 0.7),
+          0 1px 4px rgba(0, 0, 0, 0.9);
+      }
+      .hero-desc,
+      .hero-title {
+        text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8);
       }
       .hero-bg-lines {
         position: absolute;
@@ -136,7 +162,7 @@
       }
       .hero-content {
         position: relative;
-        max-width: 760px;
+        max-width: 1060px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -170,12 +196,13 @@
         animation: fadeUp 0.6s 0.1s ease both;
       }
       .hero-name span {
+        width: 100%;
         color: var(--gold);
         display: block;
       }
       .hero-title {
         font-size: clamp(1rem, 2vw, 1.2rem);
-        color: var(--grey-mid);
+        color: var(--white);
         font-weight: 300;
         letter-spacing: 0.05em;
         margin-bottom: 2rem;
@@ -194,7 +221,7 @@
         animation: fadeUp 0.6s 0.3s ease both;
       }
       .hero-desc {
-        color: #8fa3bc;
+        color: #ffffff;
         font-size: 1rem;
         line-height: 1.8;
         max-width: 540px;
@@ -221,7 +248,7 @@
       }
       .stat-label {
         font-size: 0.78rem;
-        color: var(--grey-mid);
+        color: var(--white);
         letter-spacing: 0.05em;
         margin-top: 0.2rem;
       }
@@ -334,6 +361,41 @@
         background: var(--gold);
         margin: 1rem 0 2.5rem;
       }
+
+      /* ── HERO IMAGE COLLAGE (pie/circular style - UNCHANGED) ── */
+
+      /* ── SECTIONS COMMON ── */
+      section {
+        padding: 6rem 5vw;
+      }
+      .section-label {
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.75rem;
+      }
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(1.8rem, 4vw, 2.8rem);
+        color: var(--navy);
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+      .section-subtitle {
+        color: var(--text-body);
+        font-size: 1rem;
+        line-height: 1.7;
+        max-width: 540px;
+        margin-bottom: 3rem;
+      }
+      .divider-line {
+        width: 50px;
+        height: 2px;
+        background: var(--gold);
+        margin: 1rem 0 2.5rem;
+      }
+
       /* ── ABOUT ── */
       #about {
         background: var(--cream);
@@ -438,7 +500,7 @@
       .service-num {
         font-family: "Playfair Display", serif;
         font-size: 2.5rem;
-        color: rgba(13, 31, 60, 0.07);
+        color: rgba(13, 31, 60, 0.344);
         line-height: 1;
         margin-bottom: 1rem;
         font-weight: 700;
@@ -448,7 +510,6 @@
         font-weight: 500;
         color: var(--navy);
         margin-bottom: 0.75rem;
-        letter-spacing: 0.02em;
       }
       .service-card ul {
         list-style: none;
@@ -456,8 +517,7 @@
       .service-card ul li {
         font-size: 0.87rem;
         color: var(--text-body);
-        padding: 0.3rem 0;
-        padding-left: 1rem;
+        padding: 0.3rem 0 0.3rem 1rem;
         position: relative;
         line-height: 1.5;
       }
@@ -479,6 +539,8 @@
       #projects .section-subtitle {
         color: var(--grey-mid);
       }
+
+      /* Landmark cards */
       .landmark-strip {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -490,8 +552,6 @@
         border: 1px solid rgba(201, 168, 76, 0.25);
         border-radius: 4px;
         padding: 2rem;
-        position: relative;
-        overflow: hidden;
         transition: background 0.3s;
       }
       .landmark-card:hover {
@@ -516,6 +576,213 @@
         font-size: 0.87rem;
         line-height: 1.6;
       }
+
+      /* ═══════════════════════════════════════════
+         PHOTO GALLERY SLIDER — Rectangle shapes
+         ═══════════════════════════════════════════ */
+      .gallery-section {
+        margin-bottom: 4rem;
+      }
+      .gallery-pill-label {
+        display: inline-block;
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold-light);
+        background: rgba(201, 168, 76, 0.1);
+        border: 1px solid rgba(201, 168, 76, 0.3);
+        padding: 0.35rem 0.9rem;
+        border-radius: 999px;
+        margin-bottom: 2rem;
+      }
+
+      /* Tab buttons for projects */
+      .gallery-tabs {
+        display: flex;
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+      }
+      .gallery-tab {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(201, 168, 76, 0.2);
+        color: var(--grey-mid);
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 0.5rem 1.25rem;
+        border-radius: 2px;
+        cursor: pointer;
+        transition:
+          background 0.25s,
+          color 0.25s,
+          border-color 0.25s;
+        font-family: "DM Sans", sans-serif;
+      }
+      .gallery-tab.active,
+      .gallery-tab:hover {
+        background: rgba(201, 168, 76, 0.15);
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+
+      /* Slider container */
+      .slider-outer {
+        position: relative;
+        overflow: hidden;
+        border-radius: 6px;
+      }
+      .slider-track {
+        display: flex;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        gap: 0;
+      }
+
+      /* Each slide = rectangle image card */
+      .slide {
+        min-width: calc(33.333% - 1rem);
+        margin-right: 1.5rem;
+        flex-shrink: 0;
+        border-radius: 6px;
+        overflow: hidden;
+        position: relative;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(201, 168, 76, 0.15);
+        cursor: pointer;
+      }
+      .slide:last-child {
+        margin-right: 0;
+      }
+      .slide-img {
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+      .slide:hover .slide-img {
+        transform: scale(1.04);
+      }
+      .slide-caption {
+        padding: 0.75rem 1rem;
+        background: rgba(13, 31, 60, 0.85);
+      }
+      .slide-caption .sc-title {
+        font-family: "Playfair Display", serif;
+        color: var(--white);
+        font-size: 0.92rem;
+        margin-bottom: 0.2rem;
+      }
+      .slide-caption .sc-sub {
+        font-size: 0.72rem;
+        color: var(--grey-mid);
+        letter-spacing: 0.04em;
+      }
+
+      /* Nav arrows */
+      .slider-nav {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 1.25rem;
+        justify-content: flex-end;
+      }
+      .slider-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(201, 168, 76, 0.12);
+        border: 1px solid rgba(201, 168, 76, 0.3);
+        color: var(--gold);
+        font-size: 1.1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          background 0.25s,
+          border-color 0.25s;
+      }
+      .slider-btn:hover {
+        background: rgba(201, 168, 76, 0.25);
+        border-color: var(--gold);
+      }
+      .slider-btn:disabled {
+        opacity: 0.3;
+        cursor: default;
+      }
+
+      /* Dots */
+      .slider-dots {
+        display: flex;
+        gap: 0.4rem;
+        align-items: center;
+        flex: 1;
+        margin-top: 1.25rem;
+      }
+      .slider-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgba(201, 168, 76, 0.25);
+        transition:
+          background 0.3s,
+          width 0.3s;
+        cursor: pointer;
+      }
+      .slider-dot.active {
+        background: var(--gold);
+        width: 20px;
+        border-radius: 3px;
+      }
+      .slider-controls {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      /* ── PHOTO STRIP ── */
+      .photo-strip {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        margin-bottom: 4rem;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .photo-strip-item {
+        position: relative;
+        height: 180px;
+        overflow: hidden;
+      }
+      .photo-strip-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+      .photo-strip-item:hover img {
+        transform: scale(1.08);
+      }
+      .photo-strip-item .strip-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(13, 31, 60, 0.7) 0%,
+          transparent 55%
+        );
+        display: flex;
+        align-items: flex-end;
+        padding: 0.75rem;
+      }
+      .photo-strip-item .strip-label {
+        font-size: 0.7rem;
+        color: var(--gold);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      /* ── PROJECT TABLE ── */
       .projects-table-wrap {
         overflow-x: auto;
         border-radius: 4px;
@@ -737,7 +1004,59 @@
         transform: translateY(0);
       }
 
+      /* ── LIGHTBOX ── */
+      .lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 999;
+        background: rgba(0, 0, 0, 0.9);
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+      }
+      .lightbox.open {
+        display: flex;
+      }
+      .lightbox img {
+        max-width: 90vw;
+        max-height: 85vh;
+        border-radius: 4px;
+        object-fit: contain;
+      }
+      .lightbox-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 2rem;
+        color: var(--gold);
+        font-size: 2rem;
+        cursor: pointer;
+        background: none;
+        border: none;
+        line-height: 1;
+      }
+      .lightbox-caption {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: var(--white);
+        font-size: 0.9rem;
+        text-align: center;
+        background: rgba(13, 31, 60, 0.7);
+        padding: 0.5rem 1.5rem;
+        border-radius: 4px;
+      }
+
       /* ── RESPONSIVE ── */
+      @media (max-width: 1024px) {
+        .hero-layout {
+          grid-template-columns: 1fr;
+        }
+        .hero-images {
+          display: none;
+        }
+      }
       @media (max-width: 900px) {
         .about-grid,
         .engagement-grid {
@@ -747,6 +1066,12 @@
         .landmark-strip {
           grid-template-columns: 1fr;
         }
+        .slide {
+          min-width: calc(50% - 0.75rem);
+        }
+        .photo-strip {
+          grid-template-columns: repeat(2, 1fr);
+        }
       }
       @media (max-width: 640px) {
         nav {
@@ -755,11 +1080,14 @@
         .nav-links {
           display: none;
         }
-        .hero-stats {
-          gap: 1.5rem;
-        }
         section {
           padding: 4rem 4vw;
+        }
+        .slide {
+          min-width: 85%;
+        }
+        .photo-strip {
+          grid-template-columns: 1fr 1fr;
         }
       }
     </style>
@@ -784,7 +1112,7 @@
         <span class="hero-badge"
           >Bridge Expert Since 1992 &nbsp;·&nbsp; Consultancy Est. 2025</span
         >
-        <h1 class="hero-name">Hi, I'm <span>Kalyan B. Jadhav</span></h1>
+        <h1 class="hero-name">Hi, I'm <span>Shri Kalyan B. Jadhav</span></h1>
         <p class="hero-title">
           Civil Engineer &nbsp;|&nbsp; Civil Consultant &nbsp;|&nbsp; Bridge
           Expert
@@ -863,8 +1191,8 @@
             <div class="contact-icon">✉️</div>
             <div class="contact-info">
               <strong>Email</strong>
-              <a href="mailto:KalyanM.Jadhav@gmail.com"
-                >KalyanM.Jadhav@gmail.com</a
+              <a href="mailto:kalyan111jadhav@gmail.com"
+                >kalyan111jadhav@gmail.com</a
               >
             </div>
           </div>
@@ -880,6 +1208,7 @@
     </section>
 
     <!-- SERVICES -->
+
     <section id="services">
       <div class="reveal">
         <p class="section-label">Our Services</p>
@@ -908,7 +1237,7 @@
           <h3>I Girder / Box Girder</h3>
           <ul>
             <li>Especially for PSC Components</li>
-            <li>Stressing & Grouting — Complete</li>
+            <li>Stressing &amp; Grouting — Complete</li>
           </ul>
         </div>
         <div class="service-card reveal">
@@ -944,7 +1273,9 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
+    <!-- ══════════════════════════════════════════════
+         PROJECTS — with slider gallery
+    ══════════════════════════════════════════════ -->
     <section id="projects">
       <div class="reveal">
         <p class="section-label" style="color: var(--gold-light)">
@@ -958,7 +1289,7 @@
         </p>
       </div>
 
-      <!-- Landmark Projects -->
+      <!-- Landmark highlight cards -->
       <div class="landmark-strip reveal">
         <div class="landmark-card">
           <div class="landmark-tag">⭐ Landmark — MMRDC</div>
@@ -986,7 +1317,626 @@
         </div>
       </div>
 
-      <!-- Full Project Table -->
+      <!-- ─── PHOTO GALLERY SLIDER ─── -->
+      <div class="gallery-section reveal">
+        <!-- Project tabs -->
+        <div class="gallery-tabs">
+          <button class="gallery-tab active" data-project="all">
+            All Projects
+          </button>
+          <button class="gallery-tab" data-project="1">Project 1</button>
+          <button class="gallery-tab" data-project="2">Project 2</button>
+          <button class="gallery-tab" data-project="3">Project 3</button>
+        </div>
+
+        <!-- Slider -->
+        <div class="slider-outer" id="mainSlider">
+          <div class="slider-track" id="sliderTrack">
+            <!-- Project 1 images -->
+            <div class="slide" data-project="1" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 1/1.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=700&q=80'
+                "
+                alt="Project 1 — Image 1"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 1 — Bridge Works</div>
+                <div class="sc-sub">Site photography · Maharashtra</div>
+              </div>
+            </div>
+            <div class="slide" data-project="1" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 1/2.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1604079628040-94301bb21b91?w=700&q=80'
+                "
+                alt="Project 1 — Image 2"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 1 — Construction Phase</div>
+                <div class="sc-sub">Foundation & substructure works</div>
+              </div>
+            </div>
+            <div class="slide" data-project="1" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 1/3.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=700&q=80'
+                "
+                alt="Project 1 — Image 3"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 1 — Site View</div>
+                <div class="sc-sub">Superstructure execution</div>
+              </div>
+            </div>
+            <div class="slide" data-project="1" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 1/4.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1590058759575-61f6b6e01f2a?w=700&q=80'
+                "
+                alt="Project 1 — Image 4"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 1 — Progress</div>
+                <div class="sc-sub">Execution detail · Maharashtra</div>
+              </div>
+            </div>
+            <div class="slide" data-project="1" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 1/5.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=700&q=80'
+                "
+                alt="Project 1 — Image 5"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 1 — Completion</div>
+                <div class="sc-sub">Finished structure · Maharashtra</div>
+              </div>
+            </div>
+
+            <!-- Project 2 images -->
+            <div class="slide" data-project="2" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 2/1.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80'
+                "
+                alt="Project 2 — Image 1"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 2 — Bridge Works</div>
+                <div class="sc-sub">Site photography · Maharashtra</div>
+              </div>
+            </div>
+            <div class="slide" data-project="2" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 2/2.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=700&q=80'
+                "
+                alt="Project 2 — Image 2"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 2 — Structural Phase</div>
+                <div class="sc-sub">Girder & deck works</div>
+              </div>
+            </div>
+            <div class="slide" data-project="2" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 2/3.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=700&q=80'
+                "
+                alt="Project 2 — Image 3"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 2 — Site View</div>
+                <div class="sc-sub">River crossing · Maharashtra</div>
+              </div>
+            </div>
+            <div class="slide" data-project="2" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 2/4.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=700&q=80'
+                "
+                alt="Project 2 — Image 4"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 2 — Progress</div>
+                <div class="sc-sub">Construction milestone</div>
+              </div>
+            </div>
+            <div class="slide" data-project="2" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 2/5.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1590058759575-61f6b6e01f2a?w=700&q=80'
+                "
+                alt="Project 2 — Image 5"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 2 — Detail</div>
+                <div class="sc-sub">PSC works · Maharashtra</div>
+              </div>
+            </div>
+
+            <div class="slide" data-project="2" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 2/6.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1590058759575-61f6b6e01f2a?w=700&q=80'
+                "
+                alt="Project 2 — Image 6"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 2 — Detail</div>
+                <div class="sc-sub">PSC works · Maharashtra</div>
+              </div>
+            </div>
+
+            <div class="slide" data-project="2" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 2/7.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1590058759575-61f6b6e01f2a?w=700&q=80'
+                "
+                alt="Project 2 — Image 7"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 2 — Detail</div>
+                <div class="sc-sub">PSC works · Maharashtra</div>
+              </div>
+            </div>
+
+            <div class="slide" data-project="2" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 2/8.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1590058759575-61f6b6e01f2a?w=700&q=80'
+                "
+                alt="Project 2 — Image 8"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 2 — Detail</div>
+                <div class="sc-sub">PSC works · Maharashtra</div>
+              </div>
+            </div>
+
+            <div class="slide" data-project="2" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 2/9.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1590058759575-61f6b6e01f2a?w=700&q=80'
+                "
+                alt="Project 2 — Image 9"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 2 — Detail</div>
+                <div class="sc-sub">PSC works · Maharashtra</div>
+              </div>
+            </div>
+
+            <div class="slide" data-project="2" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 2/10.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1590058759575-61f6b6e01f2a?w=700&q=80'
+                "
+                alt="Project 2 — Image 10"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 2 — Detail</div>
+                <div class="sc-sub">PSC works · Maharashtra</div>
+              </div>
+            </div>
+
+            <div class="slide" data-project="2" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 2/11.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1590058759575-61f6b6e01f2a?w=700&q=80'
+                "
+                alt="Project 2 — Image 11"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 2 — Detail</div>
+                <div class="sc-sub">PSC works · Maharashtra</div>
+              </div>
+            </div>
+
+            <div class="slide" data-project="2" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 2/12.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1590058759575-61f6b6e01f2a?w=700&q=80'
+                "
+                alt="Project 2 — Image 12"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 2 — Detail</div>
+                <div class="sc-sub">PSC works · Maharashtra</div>
+              </div>
+            </div>
+
+            <div class="slide" data-project="2" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 2/13.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1590058759575-61f6b6e01f2a?w=700&q=80'
+                "
+                alt="Project 2 — Image 13"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 2 — Detail</div>
+                <div class="sc-sub">PSC works · Maharashtra</div>
+              </div>
+            </div>
+
+            <div class="slide" data-project="2" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 2/14.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1590058759575-61f6b6e01f2a?w=700&q=80'
+                "
+                alt="Project 2 — Image 14"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 2 — Detail</div>
+                <div class="sc-sub">PSC works · Maharashtra</div>
+              </div>
+            </div>
+
+            <div class="slide" data-project="2" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 2/15.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1590058759575-61f6b6e01f2a?w=700&q=80'
+                "
+                alt="Project 2 — Image 15"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 2 — Detail</div>
+                <div class="sc-sub">PSC works · Maharashtra</div>
+              </div>
+            </div>
+
+            <!-- Project 3 images -->
+            <div class="slide" data-project="3" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 3/1.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1590058759575-61f6b6e01f2a?w=700&q=80'
+                "
+                alt="Project 3 — Image 1"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 3 — Bridge Works</div>
+                <div class="sc-sub">Site photography · Maharashtra</div>
+              </div>
+            </div>
+            <div class="slide" data-project="3" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 3/2.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=700&q=80'
+                "
+                alt="Project 3 — Image 2"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 3 — Construction</div>
+                <div class="sc-sub">Foundation phase</div>
+              </div>
+            </div>
+            <div class="slide" data-project="3" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 3/3.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1604079628040-94301bb21b91?w=700&q=80'
+                "
+                alt="Project 3 — Image 3"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 3 — Site View</div>
+                <div class="sc-sub">Substructure works</div>
+              </div>
+            </div>
+            <div class="slide" data-project="3" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 3/4.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=700&q=80'
+                "
+                alt="Project 3 — Image 4"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 3 — Progress</div>
+                <div class="sc-sub">Deck slab works</div>
+              </div>
+            </div>
+            <div class="slide" data-project="3" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 3/5.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80'
+                "
+                alt="Project 3 — Image 5"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 3 — Completion</div>
+                <div class="sc-sub">Finished bridge · Maharashtra</div>
+              </div>
+            </div>
+
+            <div class="slide" data-project="3" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 3/6.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80'
+                "
+                alt="Project 3 — Image 6"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 3 — Completion</div>
+                <div class="sc-sub">Finished bridge · Maharashtra</div>
+              </div>
+            </div>
+
+            <div class="slide" data-project="3" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 3/7.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80'
+                "
+                alt="Project 3 — Image 7"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 3 — Completion</div>
+                <div class="sc-sub">Finished bridge · Maharashtra</div>
+              </div>
+            </div>
+
+            <div class="slide" data-project="3" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 3/8.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80'
+                "
+                alt="Project 3 — Image 8"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 3 — Completion</div>
+                <div class="sc-sub">Finished bridge · Maharashtra</div>
+              </div>
+            </div>
+            <div class="slide" data-project="3" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 3/9.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80'
+                "
+                alt="Project 3 — Image 9"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 3 — Completion</div>
+                <div class="sc-sub">Finished bridge · Maharashtra</div>
+              </div>
+            </div>
+            <div class="slide" data-project="3" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 3/10.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80'
+                "
+                alt="Project 3 — Image 10"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 3 — Completion</div>
+                <div class="sc-sub">Finished bridge · Maharashtra</div>
+              </div>
+            </div>
+            <div class="slide" data-project="3" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 3/11.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80'
+                "
+                alt="Project 3 — Image 11"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 3 — Completion</div>
+                <div class="sc-sub">Finished bridge · Maharashtra</div>
+              </div>
+            </div>
+            <div class="slide" data-project="3" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 3/12.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80'
+                "
+                alt="Project 3 — Image 12"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 3 — Completion</div>
+                <div class="sc-sub">Finished bridge · Maharashtra</div>
+              </div>
+            </div>
+            <div class="slide" data-project="3" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 3/13.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80'
+                "
+                alt="Project 3 — Image 13"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 3 — Completion</div>
+                <div class="sc-sub">Finished bridge · Maharashtra</div>
+              </div>
+            </div>
+            <div class="slide" data-project="3" onclick="openLightbox(this)">
+              <img
+                class="slide-img"
+                src="/assets/Project 3/14.jpeg"
+                onerror="
+                  this.src =
+                    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80'
+                "
+                alt="Project 3 — Image 14"
+              />
+              <div class="slide-caption">
+                <div class="sc-title">Project 3 — Completion</div>
+                <div class="sc-sub">Finished bridge · Maharashtra</div>
+              </div>
+            </div>
+          </div>
+          <!-- /slider-track -->
+        </div>
+        <!-- /slider-outer -->
+
+        <!-- Controls -->
+        <div class="slider-controls">
+          <div class="slider-dots" id="sliderDots"></div>
+          <div class="slider-nav">
+            <button class="slider-btn" id="prevBtn" onclick="slideMove(-1)">
+              &#8592;
+            </button>
+            <button class="slider-btn" id="nextBtn" onclick="slideMove(1)">
+              &#8594;
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- /gallery-section -->
+
+      <!-- Photo strip -->
+      <div class="photo-strip reveal">
+        <div class="photo-strip-item">
+          <img
+            src="/assets/1.png"
+            onerror="
+              this.src =
+                'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&q=80'
+            "
+            alt="Foundation work"
+          />
+          <div class="strip-overlay">
+            <span class="strip-label">Foundation Works</span>
+          </div>
+        </div>
+        <div class="photo-strip-item">
+          <img
+            src="/assets/Project 1/1.jpeg"
+            onerror="
+              this.src =
+                'https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=400&q=80'
+            "
+            alt="PSC girder"
+          />
+          <div class="strip-overlay">
+            <span class="strip-label">PSC Girders</span>
+          </div>
+        </div>
+        <div class="photo-strip-item">
+          <img
+            src="/assets/2.png"
+            onerror="
+              this.src =
+                'https://images.unsplash.com/photo-1590058759575-61f6b6e01f2a?w=400&q=80'
+            "
+            alt="Superstructure"
+          />
+          <div class="strip-overlay">
+            <span class="strip-label">Superstructure</span>
+          </div>
+        </div>
+        <div class="photo-strip-item">
+          <img
+            src="/assets/Project 2/1.jpeg"
+            onerror="
+              this.src =
+                'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&q=80'
+            "
+            alt="River bridge"
+          />
+          <div class="strip-overlay">
+            <span class="strip-label">River Crossings</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project table -->
       <div class="projects-table-wrap reveal">
         <table>
           <thead>
@@ -1019,7 +1969,7 @@
             <tr>
               <td>2004</td>
               <td>Khebwade Creek Bridge</td>
-              <td>Rathagiri-Are-ware-Sakhartav-Ganpati Pule</td>
+              <td>Ratnagiri-Are-ware-Sakhartav-Ganpati Pule</td>
               <td><span class="client-badge">PWD Ratnagiri</span></td>
             </tr>
             <tr>
@@ -1091,7 +2041,7 @@
             <tr>
               <td>2011</td>
               <td>Bhima River Bridge</td>
-              <td>Ramfangaon Samdas, Sirur Dist., East Div. Pune</td>
+              <td>Ramfangaon Samdas, Sirur Dist.</td>
               <td><span class="client-badge">PWD</span></td>
             </tr>
             <tr>
@@ -1161,12 +2111,10 @@
               <td><span class="client-badge">PWD</span></td>
             </tr>
             <tr>
-              <td>In Progress</td>
+              <td><span class="in-progress">In Progress</span></td>
               <td>Gangrakhel ROB</td>
               <td>Parbhani</td>
-              <td>
-                <span class="in-progress">In Progress — PWD Parbhani</span>
-              </td>
+              <td><span class="client-badge">PWD Parbhani</span></td>
             </tr>
           </tbody>
         </table>
@@ -1184,10 +2132,10 @@
         <div class="reveal">
           <p
             style="
-              font-size: 0.97rem;
-              line-height: 1.85;
               color: var(--text-body);
-              margin-bottom: 1.2rem;
+              line-height: 1.85;
+              font-size: 0.97rem;
+              margin-bottom: 1rem;
             "
           >
             Our service is offered on a
@@ -1198,9 +2146,10 @@
           </p>
           <p
             style="
-              font-size: 0.97rem;
-              line-height: 1.85;
               color: var(--text-body);
+              line-height: 1.85;
+              font-size: 0.97rem;
+              margin-bottom: 1rem;
             "
           >
             A detailed payment schedule break-up is provided after a written
@@ -1216,8 +2165,8 @@
           <h3>Additional Capabilities</h3>
           <p>
             We also provide services for
-            <strong style="color: var(--navy)">geological investigation</strong>
-            and structural design support.
+            <strong>geological investigation</strong> and structural design
+            support.
           </p>
           <p>
             Our network includes labour contractors and machinery contractors
@@ -1228,13 +2177,16 @@
       </div>
     </section>
 
-    <!-- CONTACT CTA -->
+    <!-- CONTACT -->
     <section id="contact">
       <p class="section-label" style="color: var(--gold-light)">Get in Touch</p>
-      <h2 class="section-title" style="max-width: 560px; margin: 0 auto 1rem">
+      <h2 class="section-title" style="color: var(--white)">
         Ready to Discuss Your Bridge Project?
       </h2>
-      <p class="section-subtitle" style="margin: 0 auto 2.5rem">
+      <p
+        class="section-subtitle"
+        style="color: var(--grey-mid); margin: 0 auto 2.5rem"
+      >
         We welcome the opportunity to partner with contractors, government
         agencies, and infrastructure companies across Maharashtra and beyond.
       </p>
@@ -1260,21 +2212,147 @@
       </p>
     </footer>
 
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+      <button
+        class="lightbox-close"
+        onclick="document.getElementById('lightbox').classList.remove('open')"
+      >
+        &times;
+      </button>
+      <img id="lightboxImg" src="" alt="" />
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
     <script>
-      // Scroll reveal
-      const reveals = document.querySelectorAll(".reveal");
-      const observer = new IntersectionObserver(
+      // ── Scroll reveal ──
+      const revealEls = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver(
         (entries) => {
           entries.forEach((e) => {
             if (e.isIntersecting) {
               e.target.classList.add("visible");
-              observer.unobserve(e.target);
+              io.unobserve(e.target);
             }
           });
         },
         { threshold: 0.12 },
       );
-      reveals.forEach((el) => observer.observe(el));
+      revealEls.forEach((el) => io.observe(el));
+
+      // ── Slider ──
+      const track = document.getElementById("sliderTrack");
+      const dotsContainer = document.getElementById("sliderDots");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+
+      let allSlides = Array.from(track.querySelectorAll(".slide"));
+      let visibleSlides = [...allSlides];
+      let currentIdx = 0;
+      let slidesPerView = getSlidesPerView();
+
+      function getSlidesPerView() {
+        return window.innerWidth <= 640 ? 1 : window.innerWidth <= 900 ? 2 : 3;
+      }
+
+      function buildDots() {
+        dotsContainer.innerHTML = "";
+        const pages = Math.ceil(visibleSlides.length / slidesPerView);
+        for (let i = 0; i < pages; i++) {
+          const d = document.createElement("div");
+          d.className =
+            "slider-dot" +
+            (i === Math.floor(currentIdx / slidesPerView) ? " active" : "");
+          d.onclick = () => {
+            currentIdx = i * slidesPerView;
+            updateSlider();
+          };
+          dotsContainer.appendChild(d);
+        }
+      }
+
+      function updateSlider() {
+        // Clamp
+        const maxIdx = Math.max(0, visibleSlides.length - slidesPerView);
+        if (currentIdx > maxIdx) currentIdx = maxIdx;
+        if (currentIdx < 0) currentIdx = 0;
+
+        // Calculate offset: sum widths of slides before currentIdx
+        let offset = 0;
+        visibleSlides.slice(0, currentIdx).forEach((s) => {
+          offset += s.offsetWidth + 24; // 24 = gap (1.5rem)
+        });
+        track.style.transform = `translateX(-${offset}px)`;
+
+        prevBtn.disabled = currentIdx === 0;
+        nextBtn.disabled = currentIdx >= maxIdx;
+
+        // Update dots
+        const currentPage = Math.floor(currentIdx / slidesPerView);
+        dotsContainer.querySelectorAll(".slider-dot").forEach((d, i) => {
+          d.classList.toggle("active", i === currentPage);
+        });
+      }
+
+      function slideMove(dir) {
+        currentIdx += dir;
+        updateSlider();
+      }
+
+      // ── Tab filter ──
+      document.querySelectorAll(".gallery-tab").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document
+            .querySelectorAll(".gallery-tab")
+            .forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          const proj = btn.dataset.project;
+          currentIdx = 0;
+
+          allSlides.forEach((s) => {
+            if (proj === "all" || s.dataset.project === proj) {
+              s.style.display = "";
+            } else {
+              s.style.display = "none";
+            }
+          });
+
+          visibleSlides = allSlides.filter((s) => s.style.display !== "none");
+          track.style.transform = "translateX(0)";
+          buildDots();
+          updateSlider();
+        });
+      });
+
+      // ── Lightbox ──
+      function openLightbox(el) {
+        const img = el.querySelector(".slide-img");
+        const title = el.querySelector(".sc-title").textContent;
+        const sub = el.querySelector(".sc-sub").textContent;
+        document.getElementById("lightboxImg").src = img.src;
+        document.getElementById("lightboxImg").alt = img.alt;
+        document.getElementById("lightboxCaption").textContent =
+          title + " — " + sub;
+        document.getElementById("lightbox").classList.add("open");
+      }
+      function closeLightbox(e) {
+        if (e.target === document.getElementById("lightbox")) {
+          document.getElementById("lightbox").classList.remove("open");
+        }
+      }
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape")
+          document.getElementById("lightbox").classList.remove("open");
+      });
+
+      // ── Init ──
+      buildDots();
+      updateSlider();
+      window.addEventListener("resize", () => {
+        slidesPerView = getSlidesPerView();
+        buildDots();
+        updateSlider();
+      });
     </script>
   </body>
 </html>
