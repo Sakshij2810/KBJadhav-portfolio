@@ -738,6 +738,25 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      @media (max-width: 640px) {
+        .slider-controls {
+          flex-direction: column;
+          align-items: center;
+          gap: 0.75rem;
+        }
+        .slider-dots {
+          justify-content: center;
+          flex-wrap: wrap;
+          margin-top: 0;
+          max-width: 100%;
+        }
+        .slider-nav {
+          margin-top: 0;
+        }
       }
 
       /* ── PHOTO STRIP ── */
@@ -2366,15 +2385,24 @@
       function getSlidesPerView() {
         return window.innerWidth <= 640 ? 1 : window.innerWidth <= 900 ? 2 : 3;
       }
-
       function buildDots() {
         dotsContainer.innerHTML = "";
         const pages = Math.ceil(visibleSlides.length / slidesPerView);
-        for (let i = 0; i < pages; i++) {
+        const MAX_DOTS = 10;
+        const currentPage = Math.floor(currentIdx / slidesPerView);
+
+        let startPage = 0,
+          endPage = pages;
+        if (pages > MAX_DOTS) {
+          startPage = Math.max(0, currentPage - Math.floor(MAX_DOTS / 2));
+          endPage = Math.min(pages, startPage + MAX_DOTS);
+          if (endPage - startPage < MAX_DOTS)
+            startPage = Math.max(0, endPage - MAX_DOTS);
+        }
+
+        for (let i = startPage; i < endPage; i++) {
           const d = document.createElement("div");
-          d.className =
-            "slider-dot" +
-            (i === Math.floor(currentIdx / slidesPerView) ? " active" : "");
+          d.className = "slider-dot" + (i === currentPage ? " active" : "");
           d.onclick = () => {
             currentIdx = i * slidesPerView;
             updateSlider();
@@ -2382,7 +2410,6 @@
           dotsContainer.appendChild(d);
         }
       }
-
       function updateSlider() {
         // Clamp
         const maxIdx = Math.max(0, visibleSlides.length - slidesPerView);
@@ -2399,11 +2426,7 @@
         prevBtn.disabled = currentIdx === 0;
         nextBtn.disabled = currentIdx >= maxIdx;
 
-        // Update dots
-        const currentPage = Math.floor(currentIdx / slidesPerView);
-        dotsContainer.querySelectorAll(".slider-dot").forEach((d, i) => {
-          d.classList.toggle("active", i === currentPage);
-        });
+        buildDots();
       }
 
       function slideMove(dir) {
